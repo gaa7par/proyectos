@@ -24,6 +24,8 @@
         <% @projects.each do |project| %>
           <% if project.active %>
             <%= project.name %>
+          <% else %>
+            <%= project.name %> <strong>(inactive!)</strong>
           <% end %>
         <% end %>
       </td>
