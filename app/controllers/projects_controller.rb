@@ -4,13 +4,17 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @project = Project.new
   end
 
   def create
     @project = Project.new(project_params)
 
-    @project.save
-    redirect_to @project
+    if @project.save
+      redirect_to @project
+    else
+      render 'new'
+    end
   end
 
   private

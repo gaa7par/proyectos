@@ -2,6 +2,17 @@
 
 <%= form_for :project, url: projects_path do |f| %>
 
+  <% if @project.errors.any? %>
+    <p>
+      <strong><%= pluralize(@project.errors.count, "error") %> found</strong>
+      <ul>
+        <% @project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </p>
+  <% end %>
+
   <p>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
