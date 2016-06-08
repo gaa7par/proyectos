@@ -1,5 +1,27 @@
-<h1>Proyectos</h1>
-<p>¡Hola, Selleo!</p>
+<h1>Projects</h1>
 
-<%= link_to 'Users', controller: 'users' %>
+<table>
+  <tr>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Projects</th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name %></td>
+      <td><%= user.last_name %></td>
+      <td><%= user.email %></td>
+      <td>
+        <% @projects.each do |project| %>
+          <% if project.active %>
+            <%= project.name %>
+          <% end %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+
+<%= link_to 'Users', controller: 'users' %> | 
 <%= link_to 'Projects', controller: 'projects' %>
