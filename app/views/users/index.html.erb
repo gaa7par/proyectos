@@ -1,5 +1,12 @@
 <h1>Users</h1>
 
+<p>
+  <%= form_tag(users_path, :method => "get") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+    <%= submit_tag "Search" %>
+  <% end %>
+</p>
+
 <table>
   <tr>
     <th>First Name</th>
@@ -16,5 +23,5 @@
   <% end %>
 </table>
 
-<%= link_to 'New User', new_user_path %> | 
+<%= link_to 'New User', new_user_path %> |
 <%= link_to 'Back', root_path %>
